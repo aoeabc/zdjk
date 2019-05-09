@@ -1,0 +1,297 @@
+文件共享目录：
+
+\\192.168.1.199\public
+
+
+pycharm 破解码地址：
+
+http://idea.lanyus.com/
+
+
+python内容
+
+数据类型
+
+一、数值类型：
+
+1、 int 整型
+
+2、long 长整型（python3中，没有该类型）
+
+3、float 浮点型
+
+二、布尔型 boolen(首字母大写)
+
+1、False  表示 零、None、空值
+
+2、True   表示非空、非零的数值
+
+转换类型 bool()    flag= bool('1')
+
+三、序列
+
+1、字符串 string （不可变，有序）
+
+2、元组类型 tuple 符号：（）(不可变，有序)
+------不可以进行修改
+
+3、列表类型  list 符号： []  (可变，有序)
+------可以进行修改，append()，pop()，remove('aaa')-删除指定值,insert(2,'bbb')-指定下标增加数据
+
+
+切片  [起始：截止：步长]   截止：欺骗步长加一
+
+四、字典 dict，无序
+
+键值组合，键不能重复
+
+keys(),values(),items(),get()
+
+dit['keyn']='valuen'
+
+del dit['key']
+
+update()
+
+五、集合，值不能重复，无序
+定义：jihe=set(),不能用{}，与字典定义重复
+{'a','b'},不能再添加'a','b'
+add()
+
+list与集合转换
+jihe=set(listvar)
+listvar=list(jihe)
+
+运算符
+1、赋值运算符  + += -= *=
+2、算法运算符  +-*\ \\  %   **
+3、关系运算符  ==,>=  <=  !=
+4、逻辑运算符  and or not
+5、身份运算符  is  is not
+6、成员运算符   in  not in 
+7、连接运算符   +   同类型
+
+----------------------------------------------------------------------------------------------
+控制流
+
+1、if-elif-elif-else
+
+2、for
+
+3、while
+
+continue 跳出本次循环
+
+break 结束当前循环体
+
+
+异常处理
+try----执行语句
+except----异常处理
+else----执行语句没有异常时执行
+finally-----不管有没有异常都要执行
+
+raise---抛出异常
+
+常用异常类:
+Exception---常规错误基类
+BaseException----所有异常基类
+
+编码与解码
+1、二进制
+2、ASCII 既是字符集，也是编码格式
+3、中文-常用GBK，其他还有gb2312/gb18030
+4、万国码unicode-UTF-8 其他还有UTF-16/utf-32
+    unicode是字符集，utf-8是编码格式
+
+python2与python3，str类型的区别：
+Python2中str类型==bytes类型，定义的str类型实际就是bytes类型；可以理解成字节串
+python3中就已经将str类型与bytes类型区分开来了，str类型==bytes类型.decode（），这时候定义的str类型就是真正意义的字符串
+
+http传输的数据为bytes,客户端或者服务器可使用decode()方法转换为Unicode，
+unicode转换成bytes可使用方法encode（）
+
+-----------------------------------------------------------------------------------------------------------
+函数
+
+完成特定功能的代码块，通常作为一个单元来使用，并且将其起一个名字
+
+调用函数时，带括号与不带括号的区别：
+    带括号直接执行方法，不带括号不执行方法。
+
+形参：形参默认值，不分配储存空间
+
+实参：传参默认值，传递实参与形参的顺序从左到右（传递值）
+
+
+def funcB(a):-------a 为形参
+	print(a)
+
+funcB('hello'）-----‘hello’为实参
+
+多类型传参
+传递元祖，在形参前加‘*’
+传递字典，在形参前加‘**’
+
+变量作用域
+局部变量
+全局变量，使用global声明，修改全局变量时必须先使用global声明
+
+特殊：全局变量类型字典、列表进行修改时，不需要声明；
+      全局变量类型字典、列表修改类型时需要声明
+
+
+返回值
+返回值可以使任意类型数据
+
+匿名函数
+快速定义单行函数
+lambda 参数列表：函数体
+
+filter(lambda x: x > 30,[49,123,2])
+reduce(lambda x,y:x*y,[49,123,2])
+
+functools.reduce(lambda x,y:x+y,list(filter(lambda x : x%2==0,range(1,101))))
+
+
+字符串的处理
+
+1、连接字符串
+‘{}’.format()
+a='elirjgihrgiwjtr'
+b='2349868576795'
+c=a+'{}'.format(b)
+
+2、字符串切割
+split(),返回的是list
+
+3、join（）
+a='1'
+b='22222'
+print(a.join(b))
+将a插入b中
+
+4、replace（）替换字符串
+
+5、count（）统计字符串出现次数
+
+6、find() 查询字符串出现的ng下标
+
+内建函数
+dir(对象)  查看对象包含的方法
+
+ID（对象） 查看内存地址   
+
+
+生成器，range()
+
+
+文本文档操作
+open()---打开文档
+f=open('//test','r')
+参数说明：
+r:只读，默认
+w+：写入，清空再写入，不存在则新建
+a+:读写，追加写入，不存在则新建
+read()---读取内容
+readline()----读取一行
+readlines()----读取所有行数据，list类型
+flush()------清空缓存
+close（）---关闭文件，打开后就需要关闭
+
+推荐写法：with open（'\\asdef.txt','r'） as f   这样打开就不要close操作，系统自动关闭
+
+
+-------------------------------------------------------------------------------------------
+
+程序 =文件（静态的可执行文件）
+进程是指一个具有一定独立功能的程序，在一个数据集合上的一次动态执行过程。
+进程 = 执行中的程序 = 程序 + 执行状态
+线程是进程的一部分，描述指令流执行状态。它是进程中的指令执行流的最小单位，是CPU调度的基本单位。
+
+进程与线程的区别：
+
+
+
+
+并发： 指能处理多个同时活动的能力
+并行：	并行是指同时发生的两个并发事件，具有并发的含义，而并发则不一定并行，也亦是说并发事件之间不一定要同一时刻发生。
+
+同步与异步关注的是消息通信机制
+同步:就是发出一个‘调用’时，没有得到结果之前，该‘调用’就不返回，但只要调用返回，就得到了返回值
+异步：‘调用’发布出去后，这个调用就返回了，但是没有返回值；返回值会在调用返回后主动通知发布者
+
+堵塞和非堵塞关注的是等待返回值的状态
+堵塞：没有得到返回值前，线程就被挂起
+非堵塞：不能立刻得到结果之前，调用不会阻塞当前线程
+
+
+模块包
+
+模块：就是一个。py文件
+包：有层次的目录结构，定义了一个由模块和子包组成python应用执行环境
+
+导入方式：
+import
+from。。。import。。。as
+
+自定义模块
+1、在目录下添加__init__.py文件
+
+第三方模块安装
+在先安装：进入pip目录，使用pip install 包名
+下载后安装：解压后，进入模块目录，使用python setup.py install
+
+目录文件操作
+os 模块
+os.walk(目录)遍历目录下所有路径
+os.mkdir()
+os.makedirs()
+os.rename()
+os.rmdir()
+os.removedirs()
+os.chdir()
+os.listdir()
+os.getcwd()-----
+os.curdir()
+
+
+os.path.abspath()
+os.path.normpath()
+os.path.isfile()
+os.path.isdir()
+os.path.exists()
+os.path.basename()
+os.path.dirname()
+os.path.join()
+os.path.spilt()
+
+
+时间模块
+
+import  time
+def log_fun(*args,**kwargs):
+    fomat='%y-%m-%d %H:%M:%S'
+    value=time.localtime(int(time.time()))
+    ll=time.strftime(fomat,value)
+    print(ll,*args,**kwargs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
